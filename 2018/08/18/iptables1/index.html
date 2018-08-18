@@ -131,10 +131,13 @@
 <meta property="og:site_name" content="Lihongda&#39;s Blog">
 <meta property="og:description" content="一、iptables的基本认识1、Netfilter组件 内核空间，集成在linux内核中 扩展各种网络服务的结构化底层框架 内核中选取五个位置放了五个hook(勾子) function(INPUT、OUTPUT、FORWARD、PREROUTING、POSTROUTING)，而这五个hook function向用户开放，用户可以通过一个命令工具（iptables）向其写入规则 由信息过滤表（ta">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-18T12:41:36.000Z">
+<meta property="og:image" content="http://lihongda.net/2018/08/18/iptables1/表和链对应关系.png">
+<meta property="og:image" content="http://lihongda.net/2018/08/18/iptables1/数据包过滤.png">
+<meta property="og:updated_time" content="2018-08-18T13:07:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iptables1">
 <meta name="twitter:description" content="一、iptables的基本认识1、Netfilter组件 内核空间，集成在linux内核中 扩展各种网络服务的结构化底层框架 内核中选取五个位置放了五个hook(勾子) function(INPUT、OUTPUT、FORWARD、PREROUTING、POSTROUTING)，而这五个hook function向用户开放，用户可以通过一个命令工具（iptables）向其写入规则 由信息过滤表（ta">
+<meta name="twitter:image" content="http://lihongda.net/2018/08/18/iptables1/表和链对应关系.png">
 
 
 
@@ -395,7 +398,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  318
+                  337
                 </span>
               
 
@@ -459,6 +462,8 @@
 <li>PREROUTING</li>
 <li>POSTROUTING</li>
 </ul>
+<h1 id="三、Netfilter表和链对应关系"><a href="#三、Netfilter表和链对应关系" class="headerlink" title="三、Netfilter表和链对应关系"></a>三、Netfilter表和链对应关系</h1><p><img src="/2018/08/18/iptables1/表和链对应关系.png" alt="表和链对应关系"></p>
+<h1 id="四、数据包过滤匹配流程"><a href="#四、数据包过滤匹配流程" class="headerlink" title="四、数据包过滤匹配流程"></a>四、数据包过滤匹配流程</h1><p><img src="/2018/08/18/iptables1/数据包过滤.png" alt="匹配流程图"></p>
 
       
     </div>
@@ -649,7 +654,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、iptables的基本认识"><span class="nav-number">1.</span> <span class="nav-text">一、iptables的基本认识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、Netfilter组件"><span class="nav-number">1.0.1.</span> <span class="nav-text">1、Netfilter组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、-三种报文流向："><span class="nav-number">1.0.2.</span> <span class="nav-text">2、 三种报文流向：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、iptables的组成"><span class="nav-number">2.</span> <span class="nav-text">二、iptables的组成</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、iptables由五个表和五个链以及一些规则组成"><span class="nav-number">2.0.1.</span> <span class="nav-text">1、iptables由五个表和五个链以及一些规则组成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、五个内置链chain"><span class="nav-number">2.0.2.</span> <span class="nav-text">2、五个内置链chain</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、iptables的基本认识"><span class="nav-number">1.</span> <span class="nav-text">一、iptables的基本认识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、Netfilter组件"><span class="nav-number">1.0.1.</span> <span class="nav-text">1、Netfilter组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、-三种报文流向："><span class="nav-number">1.0.2.</span> <span class="nav-text">2、 三种报文流向：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、iptables的组成"><span class="nav-number">2.</span> <span class="nav-text">二、iptables的组成</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、iptables由五个表和五个链以及一些规则组成"><span class="nav-number">2.0.1.</span> <span class="nav-text">1、iptables由五个表和五个链以及一些规则组成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、五个内置链chain"><span class="nav-number">2.0.2.</span> <span class="nav-text">2、五个内置链chain</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、Netfilter表和链对应关系"><span class="nav-number">3.</span> <span class="nav-text">三、Netfilter表和链对应关系</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、数据包过滤匹配流程"><span class="nav-number">4.</span> <span class="nav-text">四、数据包过滤匹配流程</span></a></li></ol></div>
             
 
           </div>
