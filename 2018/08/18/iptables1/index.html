@@ -131,7 +131,7 @@
 <meta property="og:site_name" content="Lihongda&#39;s Blog">
 <meta property="og:description" content="一、iptables的基本认识1、Netfilter组件 内核空间，集成在linux内核中 扩展各种网络服务的结构化底层框架 内核中选取五个位置放了五个hook(勾子) function(INPUT、OUTPUT、FORWARD、PREROUTING、POSTROUTING)，而这五个hook function向用户开放，用户可以通过一个命令工具（iptables）向其写入规则 由信息过滤表（ta">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-18T12:27:38.059Z">
+<meta property="og:updated_time" content="2018-08-18T12:41:36.329Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iptables1">
 <meta name="twitter:description" content="一、iptables的基本认识1、Netfilter组件 内核空间，集成在linux内核中 扩展各种网络服务的结构化底层框架 内核中选取五个位置放了五个hook(勾子) function(INPUT、OUTPUT、FORWARD、PREROUTING、POSTROUTING)，而这五个hook function向用户开放，用户可以通过一个命令工具（iptables）向其写入规则 由信息过滤表（ta">
@@ -395,7 +395,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  317
+                  318
                 </span>
               
 
@@ -436,7 +436,9 @@
 <li>内核空间，集成在linux内核中</li>
 <li>扩展各种网络服务的结构化底层框架</li>
 <li>内核中选取五个位置放了五个hook(勾子) function(INPUT、OUTPUT、FORWARD、PREROUTING、POSTROUTING)，而这五个hook function向用户开放，用户可以通过一个命令工具（iptables）向其写入规则</li>
-<li>由信息过滤表（table）组成，包含控制IP包处理的规则集（rules），规则被分组放在链（chain）上<h3 id="2、-三种报文流向："><a href="#2、-三种报文流向：" class="headerlink" title="2、 三种报文流向："></a>2、 三种报文流向：</h3></li>
+<li>由信息过滤表（table）组成，包含控制IP包处理的规则集（rules），规则被分组放在链（chain）上  </li>
+</ul>
+<h3 id="2、-三种报文流向："><a href="#2、-三种报文流向：" class="headerlink" title="2、 三种报文流向："></a>2、 三种报文流向：</h3><ul>
 <li>流入本机：PREROUTING –&gt; INPUT–&gt;用户空间进程</li>
 <li>流出本机：用户空间进程 –&gt;OUTPUT–&gt; POSTROUTING</li>
 <li>转发：PREROUTING –&gt; FORWARD –&gt; POSTROUTING   </li>
@@ -448,7 +450,9 @@
 <li>mangle:修改数据标记位规则表</li>
 <li>Raw:关闭NAT表上启用的连接跟踪机制，加快封包穿越防火墙速度</li>
 <li>Security：此表用于强制访问控制（MAC）网络规则，由Linux安全模块（如SELinux）实现</li>
-<li>优先级由高到低的顺序为:security –&gt;raw–&gt;mangle–&gt;nat–&gt;filter<h3 id="2、五个内置链chain"><a href="#2、五个内置链chain" class="headerlink" title="2、五个内置链chain"></a>2、五个内置链chain</h3></li>
+<li>优先级由高到低的顺序为:security –&gt;raw–&gt;mangle–&gt;nat–&gt;filter  </li>
+</ul>
+<h3 id="2、五个内置链chain"><a href="#2、五个内置链chain" class="headerlink" title="2、五个内置链chain"></a>2、五个内置链chain</h3><ul>
 <li>INPUT</li>
 <li>OUTPUT</li>
 <li>FORWARD</li>
