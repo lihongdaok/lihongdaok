@@ -125,20 +125,17 @@
 
 
 
-<meta name="description" content="内核中数据包的传输过程">
 <meta name="keywords" content="iptables2">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iptables2">
 <meta property="og:url" content="http://lihongda.net/2018/08/19/iptables2/index.html">
 <meta property="og:site_name" content="Lihongda&#39;s Blog">
-<meta property="og:description" content="内核中数据包的传输过程">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://lihongda.net/2018/08/19/iptables2/防火墙.jpg">
 <meta property="og:image" content="http://lihongda.net/2018/08/19/iptables2/表规则.png">
-<meta property="og:updated_time" content="2018-08-19T08:56:56.000Z">
+<meta property="og:updated_time" content="2018-08-19T09:14:09.830Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iptables2">
-<meta name="twitter:description" content="内核中数据包的传输过程">
 <meta name="twitter:image" content="http://lihongda.net/2018/08/19/iptables2/防火墙.jpg">
 
 
@@ -437,8 +434,9 @@
       
 
       
-        <h2 id="内核中数据包的传输过程"><a href="#内核中数据包的传输过程" class="headerlink" title="内核中数据包的传输过程"></a>内核中数据包的传输过程</h2><p><img src="/2018/08/19/iptables2/防火墙.jpg" alt="防火墙"><br><a id="more"></a></p>
-<ul>
+        <p><img src="/2018/08/19/iptables2/防火墙.jpg" alt="防火墙"></p>
+<a id="more"></a>
+<h2 id="内核中数据包的传输过程"><a href="#内核中数据包的传输过程" class="headerlink" title="内核中数据包的传输过程"></a>内核中数据包的传输过程</h2><ul>
 <li>当一个数据包进入网卡时，数据包首先进入PREROUTING链，内核根据数据包目的IP判断是否需要转送出去</li>
 <li>如果数据包就是进入本机的，数据包就会到达INPUT链。数据包到达INPUT链后，任何进程都会收到它。本机上的程序可以发送数据包，这些数据包经过OUTPUT链，然后到达POSTROUTING链输出</li>
 <li>如果数据包是要转发出去的，且内核允许转发，数据包就会到达FORWARD链，然后到达POSTROUTING链输出    </li>
@@ -466,8 +464,8 @@
 <li>链上规则的次序，即为检查的次序，因此隐含一定的法则</li>
 </ul>
 <p>1、同类规则（访问同一应用），匹配范围小的放上面<br>2、不同类规则（访问不同应用），匹配到报文频率较大的放上面<br>3、将那些可由一条规则描述的多个规则合并为一个<br>4、设置默认策略</p>
-<h3 id="避免自己定义的规则和系统默认的冲突，建议关闭系统的防火墙"><a href="#避免自己定义的规则和系统默认的冲突，建议关闭系统的防火墙" class="headerlink" title="避免自己定义的规则和系统默认的冲突，建议关闭系统的防火墙"></a>避免自己定义的规则和系统默认的冲突，建议关闭系统的防火墙</h3><p>Centos 7 系统环境<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systmectl stop firewalld.service     关闭防火墙</span><br><span class="line">systemctl disable firewalld.service     设置开机不启动</span><br></pre></td></tr></table></figure></p>
-<p>Centos 6 系统环境<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">service iptables stop      关闭防火墙</span><br><span class="line">chkconfig iptables off      设置开机不启动</span><br></pre></td></tr></table></figure></p>
+<h3 id="避免自己定义的规则和系统默认的冲突，建议关闭系统的防火墙"><a href="#避免自己定义的规则和系统默认的冲突，建议关闭系统的防火墙" class="headerlink" title="避免自己定义的规则和系统默认的冲突，建议关闭系统的防火墙"></a>避免自己定义的规则和系统默认的冲突，建议关闭系统的防火墙</h3><p>Centos 7 系统环境<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systmectl stop firewalld.service        关闭防火墙</span><br><span class="line">systemctl disable firewalld.service     设置开机不启动</span><br></pre></td></tr></table></figure></p>
+<p>Centos 6 系统环境<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">service iptables stop       关闭防火墙</span><br><span class="line">chkconfig iptables off      设置开机不启动</span><br></pre></td></tr></table></figure></p>
 <h2 id="iptables命令"><a href="#iptables命令" class="headerlink" title="iptables命令"></a>iptables命令</h2><h4 id="简单实例"><a href="#简单实例" class="headerlink" title="简单实例"></a>简单实例</h4><p><img src="/2018/08/19/iptables2/表规则.png" alt="表规则"></p>
 <h4 id="规则格式"><a href="#规则格式" class="headerlink" title="规则格式"></a>规则格式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables [-t table] SUBCOMMAND chain [-m matchname [per-matchoptions]] -j targetname [per-target-options]</span><br></pre></td></tr></table></figure>
 <h4 id="t-table-raw-mangle-nat-filter-默认"><a href="#t-table-raw-mangle-nat-filter-默认" class="headerlink" title="-t table:raw,mangle,nat,[filter]默认"></a>-t table:raw,mangle,nat,[filter]默认</h4><h4 id="链管理"><a href="#链管理" class="headerlink" title="链管理"></a>链管理</h4><blockquote>
