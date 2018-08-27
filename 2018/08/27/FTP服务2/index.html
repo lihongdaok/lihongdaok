@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="ftp," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Lihongda's Blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="keywords" content="ftp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FTP服务2">
+<meta property="og:url" content="http://lihongda.net/2018/08/27/FTP服务2/index.html">
+<meta property="og:site_name" content="Lihongda&#39;s Blog">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://lihongda.net/2018/08/27/FTP服务2/ftp图标.jpg">
+<meta property="og:updated_time" content="2018-08-27T13:28:36.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="FTP服务2">
+<meta name="twitter:image" content="http://lihongda.net/2018/08/27/FTP服务2/ftp图标.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://lihongda.net/2018/08/27/FTP服务2/"/>
+
+
+
+
+
+  <title>FTP服务2 | Lihongda's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Lihongda's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">纸上得来终觉浅，绝知此事要躬行</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://lihongda.net/2018/08/27/FTP服务2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lihongda's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">FTP服务2</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-27T00:00:00+08:00">
+                2018-08-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/service/" itemprop="url" rel="index">
+                    <span itemprop="name">service</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,562
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  7
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="/2018/08/27/FTP服务2/ftp图标.jpg" alt="ftp图标">   </p>
+<a id="more"></a>  
+<h2 id="实现基于文件验证的vsftpd虚拟用户"><a href="#实现基于文件验证的vsftpd虚拟用户" class="headerlink" title="实现基于文件验证的vsftpd虚拟用户"></a>实现基于文件验证的vsftpd虚拟用户</h2><h4 id="1、创建用户数据库文件"><a href="#1、创建用户数据库文件" class="headerlink" title="1、创建用户数据库文件"></a>1、创建用户数据库文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/vsftpd/vusers.txt</span><br><span class="line">    wang</span><br><span class="line">    wangpass</span><br><span class="line">    mage</span><br><span class="line">    magepass</span><br><span class="line">cd /etc/vsftpd/</span><br><span class="line">db_load -T -t hash -f vusers.txt vusers.db</span><br><span class="line">chmod 600 vusers.db</span><br></pre></td></tr></table></figure>
+<h4 id="2、创建用户和访问FTP目录"><a href="#2、创建用户和访问FTP目录" class="headerlink" title="2、创建用户和访问FTP目录"></a>2、创建用户和访问FTP目录</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">useradd -d /var/ftproot -s /sbin/nologin vuser</span><br><span class="line">chmod +rx /var/ftproot/</span><br></pre></td></tr></table></figure>
+<p>Centos7 还需要执行以下操作：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">chmod -w /var/ftproot/</span><br><span class="line">mkdir /var/ftproot/upload</span><br><span class="line">setfacl -m u:vuser:rwx /var/ftproot/upload</span><br></pre></td></tr></table></figure>
+<h4 id="3、创建pam配置文件"><a href="#3、创建pam配置文件" class="headerlink" title="3、创建pam配置文件"></a>3、创建pam配置文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/pam.d/vsftpd.db</span><br><span class="line">auth required pam_userdb.so db=/etc/vsftpd/vusers</span><br><span class="line">account required pam_userdb.so db=/etc/vsftpd/vusers</span><br></pre></td></tr></table></figure>
+<h4 id="4、指定pam配置文件"><a href="#4、指定pam配置文件" class="headerlink" title="4、指定pam配置文件"></a>4、指定pam配置文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/vsftpd/vsftpd.conf</span><br><span class="line">guest_enable=YES </span><br><span class="line">guest_username=vuser</span><br><span class="line">pam_service_name=vsftpd.db</span><br></pre></td></tr></table></figure>
+<h4 id="5、SELinux设置："><a href="#5、SELinux设置：" class="headerlink" title="5、SELinux设置："></a>5、SELinux设置：</h4><p> 禁用SELinux 或者 <code>setsebool -P ftpd_full_access 1</code></p>
+<h4 id="6、虚拟用户建立独立的配置文件"><a href="#6、虚拟用户建立独立的配置文件" class="headerlink" title="6、虚拟用户建立独立的配置文件"></a>6、虚拟用户建立独立的配置文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mdkir /etc/vsftpd/vusers.d/ 创建配置文件存放的路径</span><br><span class="line">vim /etc/vsftpd/vsftpd.conf</span><br><span class="line">user_config_dir=/etc/vsftpd/vusers.d/</span><br></pre></td></tr></table></figure>
+<p>cd /etc/vsftpd/vusers.d/ 进入此目录</p>
+<h4 id="7、允许wang用户可读写，其它用户只读"><a href="#7、允许wang用户可读写，其它用户只读" class="headerlink" title="7、允许wang用户可读写，其它用户只读"></a>7、允许wang用户可读写，其它用户只读</h4><p><code>vim wang</code> 创建各用户自已的配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">anon_upload_enable=YES</span><br><span class="line">anon_mkdir_write_enable=YES</span><br><span class="line">anon_other_write_enable=YES</span><br></pre></td></tr></table></figure>
+<p><code>vim mage</code> 创建各用户自已的配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">local_root=/ftproot 登录目录改变至指定的目录</span><br></pre></td></tr></table></figure>
+<h2 id="实现基于MYSQL验证的vsftpd虚拟用户"><a href="#实现基于MYSQL验证的vsftpd虚拟用户" class="headerlink" title="实现基于MYSQL验证的vsftpd虚拟用户"></a>实现基于MYSQL验证的vsftpd虚拟用户</h2><blockquote>
+<h3 id="说明：本实验在两台CentOS主机上实现，一台做为FTP服务器，一台做数据库服务器"><a href="#说明：本实验在两台CentOS主机上实现，一台做为FTP服务器，一台做数据库服务器" class="headerlink" title="说明：本实验在两台CentOS主机上实现，一台做为FTP服务器，一台做数据库服务器"></a>说明：本实验在两台CentOS主机上实现，一台做为FTP服务器，一台做数据库服务器</h3></blockquote>
+<h4 id="1、在数据库服务器上安装包："><a href="#1、在数据库服务器上安装包：" class="headerlink" title="1、在数据库服务器上安装包："></a>1、在数据库服务器上安装包：</h4><ul>
+<li><p>Centos7：在数据库服务器上安装  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum –y install mariadb-server</span><br><span class="line">systemctl start mariadb.service</span><br><span class="line">systemctl enable mariadb</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Centos6：在数据库服务器上安装  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum –y install mysql-server</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在FTP服务器上安装vsftpd和pam_mysql包 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">centos6：pam_mysql由epel6的源中提供</span><br><span class="line">yum install vsftpd pam_mysql</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>centos7：无对应rpm包，需手动编译安装</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">yum -y groupinstall &quot;Development Tools&quot;</span><br><span class="line">yum -y install mariadb-devel pam-devel vsftpd</span><br><span class="line">下载pam_mysql-0.7RC1.tar.gz</span><br><span class="line">ftp://172.16.0.1/pub/Sources/sources/pam/</span><br><span class="line">tar xvf pam_mysql-0.7RC1.tar.gz</span><br><span class="line">cd pam_mysql-0.7RC1/</span><br><span class="line">./configure --with-pam-mods-dir=/lib64/security --with-mysql=/usr --with-pam=/usr</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+<h4 id="2、在数据库服务器上创建虚拟用户账号"><a href="#2、在数据库服务器上创建虚拟用户账号" class="headerlink" title="2、在数据库服务器上创建虚拟用户账号"></a>2、在数据库服务器上创建虚拟用户账号</h4><ul>
+<li>建立存储虚拟用户数据库和连接的数据库用户</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; CREATE DATABASE vsftpd;</span><br><span class="line">mysql&gt; SHOW DATABASES;</span><br></pre></td></tr></table></figure>
+<p>ftp服务和mysql不在同一主机：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; GRANT SELECT ON vsftpd.* TO </span><br><span class="line">vsftpd@<span class="string">'172.16.%.%'</span> IDENTIFIED BY <span class="string">'magedu'</span>;</span><br></pre></td></tr></table></figure></p>
+<p>ftp服务和mysql在同一主机：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; GRANT SELECT ON vsftpd.* TO </span><br><span class="line">vsftpd@localhost IDENTIFIED BY <span class="string">'magedu'</span>;</span><br><span class="line">mysql&gt; GRANT SELECT ON vsftpd.* TO </span><br><span class="line">vsftpd@<span class="string">'127.0.0.1'</span> IDENTIFIED BY <span class="string">'magedu'</span>;</span><br><span class="line">mysql&gt; FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>准备相关表</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; USE vsftpd;</span><br><span class="line">Mysql&gt; SHOW TABLES;</span><br><span class="line">mysql&gt; CREATE TABLE users (</span><br><span class="line">id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,</span><br><span class="line">name CHAR(<span class="number">50</span>) BINARY NOT NULL,</span><br><span class="line">password CHAR(<span class="number">48</span>) BINARY NOT NULL</span><br><span class="line">);</span><br><span class="line">mysql&gt;DESC users;</span><br></pre></td></tr></table></figure>
+<p>测试连接<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql -uvsftpd -h <span class="number">172.16</span><span class="number">.200</span><span class="number">.200</span> -pmagedu</span><br><span class="line">mysql&gt; SHOW DATABASES;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>添加虚拟用户 </li>
+</ul>
+<p>根据需要添加所需要的用户，为了安全应该使用PASSWORD函数加密其密码后<br>存储  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt;DESC users;</span><br><span class="line">mysql&gt; INSERT INTO users(name,password) </span><br><span class="line">values(‘wang<span class="string">',password('</span>magedu<span class="string">'));</span></span><br><span class="line"><span class="string">mysql&gt; INSERT INTO users(name,password) </span></span><br><span class="line"><span class="string">values(‘mage'</span>,password(<span class="string">'magedu'</span>));</span><br><span class="line">mysql&gt; SELECT * FROM users;</span><br></pre></td></tr></table></figure>
+<h4 id="3、在FTP服务器上配置vsftpd服务"><a href="#3、在FTP服务器上配置vsftpd服务" class="headerlink" title="3、在FTP服务器上配置vsftpd服务"></a>3、在FTP服务器上配置vsftpd服务</h4><ul>
+<li>在FTP服务器上建立pam认证所需文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/pam.d/vsftpd.mysql 添加如下两行</span><br><span class="line">auth required pam_mysql.so user=vsftpd passwd=magedu host=mysqlserver db=vsftpd table=users usercolumn=name passwdcolumn=password crypt=2</span><br><span class="line">account required pam_mysql.so user=vsftpd passwd=magedu host=mysqlserver db=vsftpd table=users usercolumn=name passwdcolumn=password crypt=2</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>crypt是加密方式，0表示不加密，1表示crypt(3)加密，2表示使用mysql password()函数加密，3表示md5加密，4表示sha1加密</p>
+</blockquote>
+<blockquote>
+<p>auth       表示认证<br>account    验证账号密码正常使用<br>required   表示认证要通过<br>pam_mysql.so模块是默认的相对路径，是相对/lib64/security/路径而言，也可以写绝<br>对路径；后面为给此模块传递的参数<br>user=vsftpd为登录mysql的用户<br>passwd=magedu 登录mysql的的密码<br>host=mysqlserver mysql服务器的主机名或ip地址<br>db=vsftpd 指定连接msyql的数据库名称<br>table=users 指定连接数据库中的表名<br>usercolumn=name 当做用户名的字段<br>passwdcolumn=password 当做用户名字段的密码<br>crypt=2 密码的加密方式为mysql password()函数加密</p>
+</blockquote>
+<ul>
+<li>建立相应用户和修改vsftpd配置文件，使其适应mysql认证  </li>
+</ul>
+<p>建立虚拟用户映射的系统用户及对应的目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">useradd -s /sbin/nologin -d /var/ftproot vuser</span><br><span class="line">chmod 555 /var/ftproot centos7 需除去ftp根目录的写权限</span><br><span class="line">mkdir /var/ftproot/&#123;upload,pub&#125;</span><br><span class="line">setfacl –m u:vuser:rwx /var/ftproot/upload</span><br></pre></td></tr></table></figure></p>
+<p>确保/etc/vsftpd.conf中已经启用了以下选项<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">anonymous_enable=YES</span><br></pre></td></tr></table></figure></p>
+<p>添加下面两项<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">guest_enable=YES</span><br><span class="line">guest_username=vuser</span><br></pre></td></tr></table></figure></p>
+<p>修改下面一项，原系统用户无法登录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pam_service_name=vsftpd.mysql</span><br></pre></td></tr></table></figure></p>
+<h4 id="4、启动vsftpd服务"><a href="#4、启动vsftpd服务" class="headerlink" title="4、启动vsftpd服务"></a>4、启动vsftpd服务</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">service vsftpd start;systemctl start vsftpd</span><br><span class="line">chkconfig vsftpd on;systemctl enable vsftpd</span><br></pre></td></tr></table></figure>
+<p>查看端口开启情况<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -tnlp |grep :21</span><br></pre></td></tr></table></figure></p>
+<h4 id="5、Selinux相关设置：在FTP服务器上执行"><a href="#5、Selinux相关设置：在FTP服务器上执行" class="headerlink" title="5、Selinux相关设置：在FTP服务器上执行"></a>5、Selinux相关设置：在FTP服务器上执行</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">restorecon -R /lib64/security</span><br><span class="line">setsebool -P ftpd_connect_db 1</span><br><span class="line">setsebool -P ftp_home_dir 1</span><br><span class="line">chcon -R -t public_content_rw_t /var/ftproot/</span><br></pre></td></tr></table></figure>
+<h4 id="6、测试：利用FTP客户端工具-以虚拟用户登录验证结果"><a href="#6、测试：利用FTP客户端工具-以虚拟用户登录验证结果" class="headerlink" title="6、测试：利用FTP客户端工具,以虚拟用户登录验证结果"></a>6、测试：利用FTP客户端工具,以虚拟用户登录验证结果</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tail /var/log/secure</span><br></pre></td></tr></table></figure>
+<h4 id="7、在FTP服务器上配置虚拟用户具有不同的访问权限"><a href="#7、在FTP服务器上配置虚拟用户具有不同的访问权限" class="headerlink" title="7、在FTP服务器上配置虚拟用户具有不同的访问权限"></a>7、在FTP服务器上配置虚拟用户具有不同的访问权限</h4><p>vsftpd可以在配置文件目录中为每个用户提供单独的配置文件以定义其ftp服务访<br>问权限，每个虚拟用户的配置文件名同虚拟用户的用户名。配置文件目录可以是任<br>意未使用目录，只需要在vsftpd.conf指定其路径及名称即可</p>
+<ul>
+<li>配置vsftpd为虚拟用户使用配置文件目录  </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/vsftpd/vsftpd.conf</span><br><span class="line">添加如下选项</span><br><span class="line">user_config_dir=/etc/vsftpd/vusers_config</span><br></pre></td></tr></table></figure>
+<ul>
+<li>创建所需要目录，并为虚拟用户提供配置文件 </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir /etc/vsftpd/vusers_config/</span><br><span class="line">cd /etc/vsftpd/vusers_config/</span><br><span class="line">touch wang mage</span><br></pre></td></tr></table></figure>
+<ul>
+<li>配置虚拟用户的访问权限</li>
+</ul>
+<p>虚拟用户对vsftpd服务的访问权限是通过匿名用户的相关指令进行的。如<br>果需要让用户wang具有上传文件的权限，可以修改/etc/vsftpd/vusers_config/wang文件，在里面添加如下选项并设置为YES即可,只读则设为NO</p>
+<p>注意：需确保对应的映射用户对于文件系统有写权限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">anon_upload_enable=&#123;YES|NO&#125;</span><br><span class="line">anon_mkdir_write_enable=&#123;YES|NO&#125;</span><br><span class="line">anon_other_write_enable=&#123;YES|NO&#125;</span><br><span class="line">local_root=/ftproot 登录目录改变至指定的目录</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    
+    
+<div>
+
+<div>
+
+    <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+
+</div>
+
+
+</div>
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Hong
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://lihongda.net/2018/08/27/FTP服务2/" title="FTP服务2">http://lihongda.net/2018/08/27/FTP服务2/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ftp/" rel="tag"><i class="fa fa-tag"></i> ftp</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/27/iptables3/" rel="next" title="iptables3">
+                <i class="fa fa-chevron-left"></i> iptables3
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="Hong" />
+            
+              <p class="site-author-name" itemprop="name">Hong</p>
+              <p class="site-description motion-element" itemprop="description">天道酬勤</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/lihongdaok" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:li_hongda_ok@126.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.51cto.com/11912662" title="51cto博客" target="_blank">51cto博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://liubin.fun/about/" title="刘斌" target="_blank">刘斌</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.ihoey.com/" title="李伟" target="_blank">李伟</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.liuxiaosi.com.cn/" title="刘聪帅" target="_blank">刘聪帅</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://zzmao.top/" title="张子茂" target="_blank">张子茂</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#实现基于文件验证的vsftpd虚拟用户"><span class="nav-number">1.</span> <span class="nav-text">实现基于文件验证的vsftpd虚拟用户</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、创建用户数据库文件"><span class="nav-number">1.0.1.</span> <span class="nav-text">1、创建用户数据库文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、创建用户和访问FTP目录"><span class="nav-number">1.0.2.</span> <span class="nav-text">2、创建用户和访问FTP目录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、创建pam配置文件"><span class="nav-number">1.0.3.</span> <span class="nav-text">3、创建pam配置文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、指定pam配置文件"><span class="nav-number">1.0.4.</span> <span class="nav-text">4、指定pam配置文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、SELinux设置："><span class="nav-number">1.0.5.</span> <span class="nav-text">5、SELinux设置：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6、虚拟用户建立独立的配置文件"><span class="nav-number">1.0.6.</span> <span class="nav-text">6、虚拟用户建立独立的配置文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7、允许wang用户可读写，其它用户只读"><span class="nav-number">1.0.7.</span> <span class="nav-text">7、允许wang用户可读写，其它用户只读</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现基于MYSQL验证的vsftpd虚拟用户"><span class="nav-number">2.</span> <span class="nav-text">实现基于MYSQL验证的vsftpd虚拟用户</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#说明：本实验在两台CentOS主机上实现，一台做为FTP服务器，一台做数据库服务器"><span class="nav-number">2.1.</span> <span class="nav-text">说明：本实验在两台CentOS主机上实现，一台做为FTP服务器，一台做数据库服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、在数据库服务器上安装包："><span class="nav-number">2.1.1.</span> <span class="nav-text">1、在数据库服务器上安装包：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、在数据库服务器上创建虚拟用户账号"><span class="nav-number">2.1.2.</span> <span class="nav-text">2、在数据库服务器上创建虚拟用户账号</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、在FTP服务器上配置vsftpd服务"><span class="nav-number">2.1.3.</span> <span class="nav-text">3、在FTP服务器上配置vsftpd服务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、启动vsftpd服务"><span class="nav-number">2.1.4.</span> <span class="nav-text">4、启动vsftpd服务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、Selinux相关设置：在FTP服务器上执行"><span class="nav-number">2.1.5.</span> <span class="nav-text">5、Selinux相关设置：在FTP服务器上执行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6、测试：利用FTP客户端工具-以虚拟用户登录验证结果"><span class="nav-number">2.1.6.</span> <span class="nav-text">6、测试：利用FTP客户端工具,以虚拟用户登录验证结果</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7、在FTP服务器上配置虚拟用户具有不同的访问权限"><span class="nav-number">2.1.7.</span> <span class="nav-text">7、在FTP服务器上配置虚拟用户具有不同的访问权限</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hong</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">7.2k</span>
+  
+</div>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
