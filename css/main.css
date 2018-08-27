@@ -1933,7 +1933,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #7ae204;
+  background: #4d96d1;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3019,4 +3019,8 @@ code {
   color: #ff7600;
   background: #fbf7f8;
   margin: 2px;
+}
+.highlight,
+code {
+  border: 1px solid #d6d6d6;
 }
