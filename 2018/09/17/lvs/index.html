@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="lvs," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Lihongda's Blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="keywords" content="lvs">
+<meta property="og:type" content="article">
+<meta property="og:title" content="lvs">
+<meta property="og:url" content="http://lihongda.net/2018/09/17/lvs/index.html">
+<meta property="og:site_name" content="Lihongda&#39;s Blog">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://lihongda.net/2018/09/17/lvs/lvs.png">
+<meta property="og:image" content="http://lihongda.net/2018/09/17/lvs/lvs-工作原理.png">
+<meta property="og:image" content="http://lihongda.net/2018/09/17/lvs/lvs-nat.png">
+<meta property="og:image" content="http://lihongda.net/2018/09/17/lvs/lvs-dr.png">
+<meta property="og:image" content="http://lihongda.net/2018/09/17/lvs/工作模式.png">
+<meta property="og:updated_time" content="2018-09-17T11:03:40.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="lvs">
+<meta name="twitter:image" content="http://lihongda.net/2018/09/17/lvs/lvs.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://lihongda.net/2018/09/17/lvs/"/>
+
+
+
+
+
+  <title>lvs | Lihongda's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Lihongda's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">纸上得来终觉浅，绝知此事要躬行</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://lihongda.net/2018/09/17/lvs/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lihongda's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">lvs</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-17T00:00:00+08:00">
+                2018-09-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/负载均衡集群/" itemprop="url" rel="index">
+                    <span itemprop="name">负载均衡集群</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3,366
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  13
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="/2018/09/17/lvs/lvs.png" alt="lvs"></p>
+<a id="more"></a>
+<h3 id="一、lvs简介"><a href="#一、lvs简介" class="headerlink" title="一、lvs简介"></a>一、lvs简介</h3><blockquote>
+<p>LB集群的架构和原理很简单，就是当用户的请求过来时，会直接分发到DirectorServer上，然后它把用户的请求根据设置好的调度算法，智能均衡地分发到后端真正服务器(realserver)上。为了避免不同机器上用户请求得到的数据不一样，需要用到了共享存储，这样保证所有用户请求的数据是一样的。</p>
+</blockquote>
+<blockquote>
+<p>LVS是 Linux Virtual Server的简称，也就是Linux虚拟服务器。这是一个由章文嵩博士发起的一个开源项目，它的官方网是 <a href="http://www.linuxvirtualserver.org" target="_blank" rel="noopener">http://www.linuxvirtualserver.org</a> 现在 LVS 已经是Linux内核标准的一部分。使用 LVS 可以达到的技术目标是：通过 LVS 达到的负载均衡技术和 Linux 操作系统实现一个高性能高可用的Linux服务器集群，它具有良好的可靠性、可扩展性和可操作性。从而以低廉的成本实现最优的性能。LVS是一个实现负载均衡集群的开源软件项目，LVS架构从逻辑上可分为调度层、Server集群层和共享存储。</p>
+</blockquote>
+<h3 id="二、工作原理"><a href="#二、工作原理" class="headerlink" title="二、工作原理"></a>二、工作原理</h3><p>简易原理图如下：</p>
+<p><img src="/2018/09/17/lvs/lvs-工作原理.png" alt="lvs原理"></p>
+<ul>
+<li><p>当用户向负载均衡调度器（Director Server）发起请求，调度器将请求发往至内核空间</p>
+</li>
+<li><p>PREROUTING链首先会接收到用户请求，判断目标IP确定是本机IP，将数据包发往INPUT链</p>
+</li>
+<li><p>IPVS是工作在INPUT链上的，当用户请求到达INPUT时，IPVS会将用户请求和自己已定义好的集群服务进行比对，如果用户请求的就是定义的集群服务，那么此时IPVS会强行修改数据包里的目标IP地址及端口，并将新的数据包发往POSTROUTING链</p>
+</li>
+<li><p>POSTROUTING链接收数据包后发现目标IP地址刚好是自己的后端服务器，那么此时通过选路，将数据包最终发送给后端的服务器.</p>
+</li>
+</ul>
+<h3 id="三、LVS的组成"><a href="#三、LVS的组成" class="headerlink" title="三、LVS的组成"></a>三、LVS的组成</h3><p>LVS 由2部分程序组成，包括 ipvs 和 ipvsadm。</p>
+<ul>
+<li><p>ipvs(ip virtual server)：一段代码工作在内核空间，叫ipvs，是真正生效实现调度的代码。</p>
+</li>
+<li><p>ipvsadm：另外一段是工作在用户空间，叫ipvsadm，负责为ipvs内核框架编写规则，定义谁是集群服务，而谁是后端真实的服务器(Real Server)</p>
+</li>
+</ul>
+<h3 id="四、LVS相关术语"><a href="#四、LVS相关术语" class="headerlink" title="四、LVS相关术语"></a>四、LVS相关术语</h3><ul>
+<li>DS：Director Server。指的是前端负载均衡器节点。</li>
+<li>RS：Real Server。后端真实的工作服务器。</li>
+<li>VIP：向外部直接面向用户请求，作为用户请求的目标的IP地址。</li>
+<li>DIP：Director Server IP，主要用于和内部主机通讯的IP地址。</li>
+<li>RIP：Real Server IP，后端服务器的IP地址。</li>
+<li>CIP：Client IP，访问客户端的IP地址。</li>
+</ul>
+<h3 id="五、lvs的工作模式"><a href="#五、lvs的工作模式" class="headerlink" title="五、lvs的工作模式"></a>五、lvs的工作模式</h3><h4 id="1-lvs-nat"><a href="#1-lvs-nat" class="headerlink" title="1) lvs-nat"></a>1) lvs-nat</h4><p><img src="/2018/09/17/lvs/lvs-nat.png" alt="lsv-nat"></p>
+<p>(1)当用户请求到达Director Server，此时请求的数据报文会先到内核空间的PREROUTING链。 此时报文的源IP为CIP，目标IP为VIP<br>(2)PREROUTING检查发现数据包的目标IP是本机，将数据包送至INPUT链<br>(3)IPVS比对数据包请求的服务是否为集群服务，若是，修改数据包的目标IP地址为后端服务器IP，然后将数据包发至POSTROUTING链。 此时报文的源IP为CIP，目标IP为RIP<br>(4)POSTROUTING链通过选路，将数据包发送给Real Server<br>(5)Real Server比对发现目标为自己的IP，开始构建响应报文发回给Director Server。 此时报文的源IP为RIP，目标IP为CIP<br>(6)Director Server在响应客户端前，此时会将源IP地址修改为自己的VIP地址，然后响应给客户端。此时报文的源IP为VIP，目标IP为CIP</p>
+<p>lvs-nat 模型特性</p>
+<ul>
+<li>RS应该使用私有地址，RS的网关必须指向DIP</li>
+<li>DIP和RIP必须在同一个网段内</li>
+<li>请求和响应报文都需要经过Director Server，高负载场景中，Director Server易成为性能瓶颈</li>
+<li>支持端口映射</li>
+<li>RS可以使用任意操作系统</li>
+<li>缺陷：对Director Server压力会比较大，请求和响应都需经过director server</li>
+</ul>
+<h4 id="2-lvs-dr"><a href="#2-lvs-dr" class="headerlink" title="2) lvs-dr"></a>2) lvs-dr</h4><p><img src="/2018/09/17/lvs/lvs-dr.png" alt="lvs-dr"></p>
+<p>(1)当用户请求到达Director Server，此时请求的数据报文会先到内核空间的PREROUTING链。 此时报文的源IP为CIP，目标IP为VIP<br>(2)PREROUTING检查发现数据包的目标IP是本机，将数据包送至INPUT链<br>(3)IPVS比对数据包请求的服务是否为集群服务，若是，将请求报文中的源MAC地址修改为DIP的MAC地址，将目标MAC地址修改RIP的MAC地址，然后将数据包发至POSTROUTING链。 此时的源IP和目的IP均未修改，仅修改了源MAC地址为DIP的MAC地址，目标MAC地址为RIP的MAC地址<br>(4)由于DS和RS在同一个网络中，所以是通过二层来传输。POSTROUTING链检查目标MAC地址为RIP的MAC地址，那么此时数据包将会发至Real Server。<br>(5)RS发现请求报文的MAC地址是自己的MAC地址，就接收此报文。处理完成之后，将响应报文通过lo接口传送给eth0网卡然后向外发出。 此时的源IP地址为VIP，目标IP为CIP<br>(6)响应报文最终送达至客户端</p>
+<p>lvs-dr 特性</p>
+<ul>
+<li>前端路由将目标地址为VIP报文统统发给Director Server，而不是RS</li>
+<li>RS可以使用私有地址；也可以是公网地址，如果使用公网地址，此时可以通过互联网对RIP进行直接访问</li>
+<li>RS跟Director Server必须在同一个物理网络中</li>
+<li>所有的请求报文经由Director Server，但响应报文必须不能进过Director Server</li>
+<li>不支持地址转换，也不支持端口映射</li>
+<li>RS可以是大多数常见的操作系统</li>
+<li>RS的网关绝不允许指向DIP(因为我们不允许他经过director)</li>
+<li>RS上的lo接口配置VIP的IP地址</li>
+<li>缺陷：RS和DS必须在同一机房中</li>
+</ul>
+<h4 id="3-lvs-tun"><a href="#3-lvs-tun" class="headerlink" title="3) lvs-tun"></a>3) lvs-tun</h4><p>转发方式：不修改请求报文的IP首部（源IP为CIP，目标IP为VIP），而在原IP报文之外再封装一个IP首部（源IP是DIP，目标IP是RIP），将报文发往挑选出的目标RS；RS直接响应给客户端（源IP是VIP，目标IP是CIP）</p>
+<p>lvs-tun特性：</p>
+<ul>
+<li>DIP, VIP, RIP都应该是公网地址</li>
+<li>RS的网关一般不能指向DIP</li>
+<li>请求报文要经由Director，但响应不能经由Director</li>
+<li>不支持端口映射</li>
+<li>RS的OS须支持隧道功能</li>
+</ul>
+<h4 id="4-lvs-fullnat"><a href="#4-lvs-fullnat" class="headerlink" title="4) lvs-fullnat"></a>4) lvs-fullnat</h4><p>lvs-fullnat：通过同时修改请求报文的源IP地址和目标IP地址进行转发<br>CIP –&gt; DIP  VIP –&gt; RIP</p>
+<p>lvs-fullnat特性</p>
+<ul>
+<li>VIP是公网地址，RIP和DIP是私网地址，且通常不在同一IP网络；因此，RIP的网关一般不会指向DIP</li>
+<li>RS收到的请求报文源地址是DIP，因此，只需响应给DIP；但Director还要将其发往Client</li>
+<li>请求和响应报文都经由Director</li>
+<li>支持端口映射</li>
+</ul>
+<blockquote>
+<p>注意：此类型kernel默认不支持</p>
+</blockquote>
+<h4 id="5-工作模式总结"><a href="#5-工作模式总结" class="headerlink" title="5) 工作模式总结"></a>5) 工作模式总结</h4><p><img src="/2018/09/17/lvs/工作模式.png" alt="工作模式"></p>
+<ul>
+<li>lvs-nat与lvs-fullnat：请求和响应报文都经由Director</li>
+<li>lvs-nat：RIP的网关要指向DIP</li>
+<li>lvs-fullnat：RIP和DIP未必在同一IP网络，但要能通信</li>
+<li>lvs-dr与lvs-tun：请求报文要经由Director，但响应报文由RS直接发往Client</li>
+<li>lvs-dr：通过封装新的MAC首部实现，通过MAC网络转发</li>
+<li>lvs-tun：通过在原IP报文外封装新IP头实现转发，支持远距离通信</li>
+</ul>
+<h3 id="六、lvs的调度算法"><a href="#六、lvs的调度算法" class="headerlink" title="六、lvs的调度算法"></a>六、lvs的调度算法</h3><ul>
+<li><p>静态方法：仅根据算法本身进行调度</p>
+<ul>
+<li>RR：roundrobin，轮询</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>这种算法是最简单的，就是按依次循环的方式将请求调度到不同的服务器上，该算法最大的特点就是简单。轮询算法假设所有的服务器处理请求的能力都是一样的，调度器会将所有的请求平均分配给每个真实服务器，不管后端 RS 配置和处理能力，非常均衡地分发下去。</p>
+</blockquote>
+<ul>
+<li>WRR：Weighted RR，加权轮询</li>
+</ul>
+<blockquote>
+<p>这种算法比 rr 的算法多了一个权重的概念，可以给 RS 设置权重，权重越高，那么分发的请求数越多，权重的取值范围 0 – 100。主要是对rr算法的一种优化和补充， LVS 会考虑每台服务器的性能，并给每台服务器添加要给权值，如果服务器A的权值为1，服务器B的权值为2，则调度到服务器B的请求会是服务器A的2倍。权值越高的服务器，处理的请求越多。</p>
+</blockquote>
+<ul>
+<li>SH：Source Hashing，实现session sticky，源IP地址hash；将来自于同一个IP地址的请求始终发往第一次挑中的RS，从而实现会话绑定</li>
+</ul>
+<blockquote>
+<p> 它是根据源地址散列算法进行静态分配固定的服务器资源,现在好多用户都是一个的snat,出口就一个ip，后端rs记录的访问地址，也是一个ip,明显的不符合实际情况。</p>
+</blockquote>
+<ul>
+<li>DH：Destination Hashing；目标地址哈希，第一次轮询调度至RS，后续将发往同一个目标地址的请求始终转发至第一次挑中的RS，典型使用场景是正向代理缓存场景中的负载均衡。</li>
+</ul>
+<blockquote>
+<p>该算法是根据目标 IP 地址通过散列函数将目标IP与服务器建立映射关系，出现服务器不可用或负载过高的情况下，发往该目标 IP 的请求会固定发给该服务器。</p>
+</blockquote>
+<ul>
+<li><p>动态方法：主要根据每RS当前的负载状态及调度算法进行调度Overhead=value较小的RS将被调度</p>
+<ul>
+<li>LC：least connections 适用于长连接应用 Overhead=activeconns*256+inactiveconns</li>
+<li>WLC：Weighted LC，默认调度方法 Overhead=(activeconns*256+inactiveconns)/weight</li>
+<li>SED：Shortest Expection Delay,初始连接高权重优先 Overhead=(activeconns+1)*256/weight</li>
+<li>NQ：Never Queue，第一轮均匀分配，后续SED</li>
+<li>LBLC：Locality-Based LC，动态的DH算法，使用场景：根据负载状态实现正向代理</li>
+<li>LBLCR：LBLC with Replication，带复制功能的LBLC，解决LBLC负载不均衡问题，从负载重的复制到负载轻的RS</li>
+</ul>
+</li>
+</ul>
+<h3 id="七、ipvs的常用命令"><a href="#七、ipvs的常用命令" class="headerlink" title="七、ipvs的常用命令"></a>七、ipvs的常用命令</h3><p>1)集群服务的增改 <code>ipvsadm -A|E -t|u|f service-address [-s scheduler] [-p [timeout]]</code></p>
+<p>2)集群服务的删除 <code>ipvsadm -D -t|u|f service-address</code></p>
+<ul>
+<li>-t: TCP协议的端口，VIP:TCP_PORT</li>
+<li>-u: UDP协议的端口，VIP:UDP_PORT</li>
+<li>-f：firewall MARK，标记，一个数字</li>
+<li>[-s scheduler]：指定集群的调度算法，默认为wlc</li>
+</ul>
+<p>3)管理集群上的RS：增、改 <code>ipvsadm -a|e -t|u|f service-address -r server-address [-g|i|m] [-w weight]</code></p>
+<p>4)集群上的删除 <code>ipvsadm -d -t|u|f service-address -r server-address</code></p>
+<ul>
+<li>server-address：rip[:port] 如省略port，不作端口映射</li>
+<li>-g: gateway, dr类型，默认</li>
+<li>-i: ipip, tun类型</li>
+<li>-m: masquerade, nat类型</li>
+<li>-w weight：权重</li>
+</ul>
+<p>5)清空定义的所有内容：<code>ipvsadm –C</code><br>清空计数器：<code>ipvsadm -Z [-t|u|f service-address]</code><br>查看：ipvsadm -L|l [options]</p>
+<ul>
+<li>–numeric, -n：以数字形式输出地址和端口号</li>
+<li>–exact：扩展信息，精确值</li>
+<li>–connection，-c：当前IPVS连接输出</li>
+<li>–stats：统计信息</li>
+<li>–rate ：输出速率信息</li>
+</ul>
+<p>6)保存：建议保存至/etc/sysconfig/ipvsadm<br><code>ipvsadm-save &gt; /PATH/TO/IPVSADM_FILE</code><br><code>ipvsadm -S &gt; /PATH/TO/IPVSADM_FILE</code><br><code>systemctl stop ipvsadm.service</code></p>
+<p>7)重载：<br><code>ipvsadm-restore &lt; /PATH/FROM/IPVSADM_FILE</code><br><code>ipvsadm -R &lt; /PATH/FROM/IPVSADM_FILE</code><br><code>systemctl restart ipvsadm.service</code></p>
+<h3 id="八、lvs-dr注意事项"><a href="#八、lvs-dr注意事项" class="headerlink" title="八、lvs-dr注意事项"></a>八、lvs-dr注意事项</h3><ul>
+<li><p>DR模型中各主机上均需要配置VIP，解决地址冲突的方式有三种：</p>
+<ul>
+<li>在前端网关做静态绑定</li>
+<li>在各RS使用arptables</li>
+<li>在各RS修改内核参数，来限制arp响应和通告的级别</li>
+<li><p>限制响应级别：arp_ignore</p>
+<ul>
+<li>0：默认值，表示可使用本地任意接口上配置的任意地址进行响应</li>
+<li>1: 仅在请求的目标IP配置在本地主机的接收到请求报文的接口上时，才给予响应</li>
+</ul>
+</li>
+<li><p>限制通告级别：arp_announce</p>
+<ul>
+<li>0：默认值，把本机所有接口的所有信息向每个接口的网络进行通告</li>
+<li>1：尽量避免将接口信息向非直接连接网络进行通告</li>
+<li>2：必须避免将接口信息向非本网络进行通告</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="九、常用的配置脚本"><a href="#九、常用的配置脚本" class="headerlink" title="九、常用的配置脚本"></a>九、常用的配置脚本</h3><p>rs的配置脚本</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">vip=<span class="number">10.0</span><span class="number">.0</span><span class="number">.100</span></span><br><span class="line">mask=<span class="string">'255.255.255.255‘</span></span><br><span class="line"><span class="string">dev=lo:1</span></span><br><span class="line"><span class="string">case $1 in</span></span><br><span class="line"><span class="string">start)</span></span><br><span class="line"><span class="string">echo 1 &gt; /proc/sys/net/ipv4/conf/all/arp_ignore</span></span><br><span class="line"><span class="string">echo 1 &gt; /proc/sys/net/ipv4/conf/lo/arp_ignore</span></span><br><span class="line"><span class="string">echo 2 &gt; /proc/sys/net/ipv4/conf/all/arp_announce</span></span><br><span class="line"><span class="string">echo 2 &gt; /proc/sys/net/ipv4/conf/lo/arp_announce</span></span><br><span class="line"><span class="string">ifconfig $dev $vip netmask $mask #broadcast $vip up</span></span><br><span class="line"><span class="string">#route add -host $vip dev $dev</span></span><br><span class="line"><span class="string">;;</span></span><br><span class="line"><span class="string">stop)</span></span><br><span class="line"><span class="string">ifconfig $dev down</span></span><br><span class="line"><span class="string">echo 0 &gt; /proc/sys/net/ipv4/conf/all/arp_ignore</span></span><br><span class="line"><span class="string">echo 0 &gt; /proc/sys/net/ipv4/conf/lo/arp_ignore</span></span><br><span class="line"><span class="string">echo 0 &gt; /proc/sys/net/ipv4/conf/all/arp_announce</span></span><br><span class="line"><span class="string">echo 0 &gt; /proc/sys/net/ipv4/conf/lo/arp_announce</span></span><br><span class="line"><span class="string">;;</span></span><br><span class="line"><span class="string">*) </span></span><br><span class="line"><span class="string">echo "Usage: $(basename $0) start|stop"</span></span><br><span class="line"><span class="string">exit 1</span></span><br><span class="line"><span class="string">;;</span></span><br><span class="line"><span class="string">esac</span></span><br></pre></td></tr></table></figure>
+<p>vs的配置脚本</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">vip=<span class="string">'10.0.0.100'</span></span><br><span class="line">iface=<span class="string">'eth0:1'</span></span><br><span class="line">mask=<span class="string">'255.255.255.255'</span></span><br><span class="line">port=<span class="string">'80'</span></span><br><span class="line">rs1=<span class="string">'192.168.0.101'</span></span><br><span class="line">rs2=<span class="string">'192.168.0.102'</span></span><br><span class="line">scheduler=<span class="string">'wrr'</span></span><br><span class="line">type=<span class="string">'-g'</span></span><br><span class="line"><span class="keyword">case</span> $<span class="number">1</span> <span class="keyword">in</span></span><br><span class="line">start)</span><br><span class="line">    ifconfig $iface $vip netmask $mask #broadcast $vip up</span><br><span class="line">    iptables -F</span><br><span class="line">    ipvsadm -A -t $&#123;vip&#125;:$&#123;port&#125; -s $scheduler</span><br><span class="line">    ipvsadm -a -t $&#123;vip&#125;:$&#123;port&#125; -r $&#123;rs1&#125; $type -w </span><br><span class="line">    ipvsadm -a -t $&#123;vip&#125;:$&#123;port&#125; -r $&#123;rs2&#125; $type -w </span><br><span class="line">    ;;</span><br><span class="line">stop)</span><br><span class="line">    ipvsadm -Cifconfig $iface down</span><br><span class="line">    ;;</span><br><span class="line">*)</span><br><span class="line">    echo <span class="string">"Usage $(basename $0) start|stop"</span></span><br><span class="line">    exit <span class="number">1</span></span><br><span class="line">esac</span><br></pre></td></tr></table></figure>
+<p>注意：</p>
+<p>lvs是基于四层的调度转发，不能基于url进行转发，而且默认的不能对后端rs进行状态检查，通常借助ldirectord实现</p>
+
+      
+    </div>
+    
+    
+    
+<div>
+
+<div>
+
+    <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+
+</div>
+
+
+</div>
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Hong
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://lihongda.net/2018/09/17/lvs/" title="lvs">http://lihongda.net/2018/09/17/lvs/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/lvs/" rel="tag"><i class="fa fa-tag"></i> lvs</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/29/NGINX02/" rel="next" title="NGINX02">
+                <i class="fa fa-chevron-left"></i> NGINX02
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/17/keepalived/" rel="prev" title="keepalived">
+                keepalived <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="Hong" />
+            
+              <p class="site-author-name" itemprop="name">Hong</p>
+              <p class="site-description motion-element" itemprop="description">天道酬勤</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/lihongdaok" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:li_hongda_ok@126.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.51cto.com/11912662" title="51cto博客" target="_blank">51cto博客</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://liubin.fun/about/" title="刘斌" target="_blank">刘斌</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.ihoey.com/" title="李伟" target="_blank">李伟</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.liuxiaosi.com.cn/" title="刘聪帅" target="_blank">刘聪帅</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://zzmao.top/" title="张子茂" target="_blank">张子茂</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、lvs简介"><span class="nav-number">1.</span> <span class="nav-text">一、lvs简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、工作原理"><span class="nav-number">2.</span> <span class="nav-text">二、工作原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、LVS的组成"><span class="nav-number">3.</span> <span class="nav-text">三、LVS的组成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、LVS相关术语"><span class="nav-number">4.</span> <span class="nav-text">四、LVS相关术语</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、lvs的工作模式"><span class="nav-number">5.</span> <span class="nav-text">五、lvs的工作模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-lvs-nat"><span class="nav-number">5.1.</span> <span class="nav-text">1) lvs-nat</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-lvs-dr"><span class="nav-number">5.2.</span> <span class="nav-text">2) lvs-dr</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-lvs-tun"><span class="nav-number">5.3.</span> <span class="nav-text">3) lvs-tun</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-lvs-fullnat"><span class="nav-number">5.4.</span> <span class="nav-text">4) lvs-fullnat</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-工作模式总结"><span class="nav-number">5.5.</span> <span class="nav-text">5) 工作模式总结</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六、lvs的调度算法"><span class="nav-number">6.</span> <span class="nav-text">六、lvs的调度算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#七、ipvs的常用命令"><span class="nav-number">7.</span> <span class="nav-text">七、ipvs的常用命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#八、lvs-dr注意事项"><span class="nav-number">8.</span> <span class="nav-text">八、lvs-dr注意事项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#九、常用的配置脚本"><span class="nav-number">9.</span> <span class="nav-text">九、常用的配置脚本</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hong</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">21.7k</span>
+  
+</div>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
